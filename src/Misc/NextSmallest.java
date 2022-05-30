@@ -7,6 +7,7 @@ import java.util.Stack;
 public class NextSmallest {
     public static int[] finalPrices(int[] prices) {
         Map<Integer,Integer> result = new HashMap<>();
+        int[] arr = new int[prices.length];
         Stack<Integer> stack = new Stack<>();
         for(int i=0;i<prices.length;i++){
             if(stack.empty()){
@@ -14,7 +15,14 @@ public class NextSmallest {
             }
             else{
                 while(!stack.empty() && prices[i]<stack.peek()){
-                    result.put(stack.pop(),prices[i]);
+                    int n = stack.pop();
+                    result.put(n,prices[i]);
+                    for(int j =0;j<prices.length;j++){
+                        if (prices[j]==n){
+                            arr[j]=n-prices[i];
+                            break;
+                        }
+                    }
                 }
                 stack.push(prices[i]);
             }
@@ -22,7 +30,7 @@ public class NextSmallest {
         result.forEach((k,v)->{
             System.out.println(k+" "+v);
         });
-        return prices;
+        return arr;
     }
 
     public static void main(String[] args) {
