@@ -17,10 +17,10 @@ public class ReverseLinkedList {
     public static void main(String[] args) {
         ListNode head = new ListNode(3);
         ListNode first = head;
-        for (int i=2;i>0;i--){
+        for (int i=2;i>0;i--) {
             ListNode temp = new ListNode(i);
-            head.next=temp;
-            head=temp;
+            head.next = temp;
+            head = temp;
         }
         System.out.println(reverseList(first));
         System.out.println("hello");
