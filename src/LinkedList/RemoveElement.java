@@ -19,25 +19,20 @@ public class RemoveElement {
         //     else copy = copy.next;
         // }
         // return head;
-
-        if(head == null || head.next==null){
-            PrintLinkedList.printList(head);
-            System.out.println();
-            return head;
-        }
-        if (head.next.val == val){
-            head.next = removeElements(head.next.next,val);
-        }
-        else{
-            head.next = removeElements(head.next,val);
-        }
-        PrintLinkedList.printList(head);
-        System.out.println();
+        if(head == null) return null;
+//        else if(head.next == null) {
+//            if(head.val!=val)
+//                return head;
+//            else return null;
+//        }
+        head.next = removeElements(head.next,val);
+        if(head.val==val) return head.next;
         return head;
+
     }
 
     public static void main(String[] args) {
-        ListNode head = CreateLinkedList.createList(new int[]{1,2,6,4,7,6,8});
+        ListNode head = CreateLinkedList.createList(new int[]{1,2,6,3,4,5,6});
         PrintLinkedList.printList(head);
         head = removeElements(head,6);
         PrintLinkedList.printList(head);
