@@ -6,6 +6,8 @@ public class ListNode2 {
     public ListNode2 prev;
     public ListNode2 left;
     public ListNode2 right;
+    public ListNode2 child;
+
     public ListNode2(){}
     public ListNode2(int val){
         this.val=val;
