@@ -1,0 +1,13 @@
+Tricks and Algorithms to Solve LinkedLists problems.
+1. Two Pointer:-
+    i. We can make a fast and slow pointer and find mid of the linked list and
+divide the linked list in two parts
+    ii. Using a fast and slow pointer we can solve cyclic problems(Floyd cycle algorithm)
+    iii.  We can keep the pointers separated by n distance to reach to a node nth place from the end.
+
+2. Recursion:-
+    i. Most of the linked list problems can be solved easily by recursion where we have to just identify the base
+case
+
+3. Collection:-
+    i. We can use Map or List to keep a collection of visited nodes
