@@ -1,36 +1,63 @@
 package Helper;
 
-import Collection.ListNode;
+import Collection.TreeNode;
+
+import java.util.*;
 
 public class PrintBinaryTree {
-    static final int COUNT = 10;
-    static void print2DUtil(ListNode root, int space)
-    {
-        // Base case
-        if (root == null)
-            return;
-
-        // Increase distance between levels
-        space += COUNT;
-
-        // Process right child first
-        print2DUtil(root.right, space);
-
-        // Print current node after space
-        // count
-        System.out.print("\n");
-        for (int i = COUNT; i < space; i++)
-            System.out.print(" ");
-        System.out.print(root.val + "\n");
-
-        // Process left child
-        print2DUtil(root.left, space);
+    public static List<List<Integer>> level(TreeNode root) {
+        List<List<Integer>> output = new ArrayList<>();
+        if (root == null) return output;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        int level = 0;
+        boolean flag = true;
+        while (!q.isEmpty() && flag) {
+            output.add(new ArrayList<>());
+            int size = q.size();
+            flag = false;
+            for (int i = 0; i < size; i++) {
+                root = q.remove();
+                if (root != null) {
+                    output.get(level).add(root.val);
+                    if(root.left!=null) {
+                        q.add(root.left);
+                        flag=true;
+                    }
+                    else q.add(null);
+                    if(root.right!=null) {
+                        q.add(root.right);
+                        flag = true;
+                    }
+                    else q.add(null);
+                } else {
+                    output.get(level).add(null);
+                    q.add(null);
+                    q.add(null);
+                }
+            }
+            level++;
+        }
+        return output;
     }
 
-    // Wrapper over print2DUtil()
-    public static void print2D(ListNode root)
-    {
-        // Pass initial space count as 0
-        print2DUtil(root, 0);
+    public static void printTree(TreeNode root) {
+        List<List<Integer>> output = level(root);
+        int space1 = output.size(), space2 = output.size();
+        for (int i = 0; i < output.size(); i++) {
+            for (int j = 0; j < space1; j++) {
+                System.out.print("      ");
+            }
+            List list = output.get(i);
+            for (int k = 0; k < list.size(); k++) {
+                System.out.print(list.get(k));
+                for(int l = 0;l < space2+2;l++){
+                    System.out.print("      ");
+                }
+            }
+            System.out.println();
+            space1 = space1/2;
+            space2 = space2/2;
+        }
     }
 }

@@ -3,8 +3,6 @@ package Collection;
 public class ListNode {
     public int val;
     public ListNode next;
-    public ListNode left;
-    public ListNode right;
     public ListNode random;
     public ListNode(){}
     public ListNode(int val){

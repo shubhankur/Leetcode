@@ -1,11 +1,15 @@
 package LinkedList;
 
 import Collection.ListNode;
+import Collection.TreeNode;
 import Helper.CreateLinkedList;
 import Helper.PrintLinkedList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CopyListWithRandomPointer {
 
