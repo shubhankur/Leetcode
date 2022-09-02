@@ -1,11 +1,13 @@
 package Collection;
 
+import java.math.BigInteger;
+
 public class TreeNode {
-    public int val;
+    public long val;
     public TreeNode left;
     public TreeNode right;
     public TreeNode(){}
-    public TreeNode(int val){
+    public TreeNode(long val){
         this.val=val;
     }
 }

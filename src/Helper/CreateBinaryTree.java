@@ -11,15 +11,17 @@ public class CreateBinaryTree {
         TreeNode head = new TreeNode(nodes.get(0));
         TreeNode copy = head;
         q.add(head);
-        for(int i = 1;i< nodes.size()-1;i+=2) {
+        for(int i = 1;i< nodes.size();i+=2) {
                 head = q.remove();
                 if(nodes.get(i)!=null) {
                     head.left = new TreeNode(nodes.get(i));
                     q.add(head.left);
                 }
-                if(nodes.get(i+1)!=null) {
-                    head.right = new TreeNode(nodes.get(i + 1));
-                    q.add(head.right);
+                if(i<nodes.size()-1) {
+                    if (nodes.get(i + 1) != null) {
+                        head.right = new TreeNode(nodes.get(i + 1));
+                        q.add(head.right);
+                    }
                 }
             }
         return copy;
